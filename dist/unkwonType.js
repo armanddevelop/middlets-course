@@ -1,0 +1,10 @@
+"use strict";
+let anyVar = 200;
+anyVar = 'sheyeye';
+anyVar = {};
+anyVar = [];
+let isNew = anyVar;
+let unknow = 200;
+unknow = 'sheyeye';
+unknow = {};
+unknow = [];
