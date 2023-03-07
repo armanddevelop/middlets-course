@@ -6,6 +6,7 @@ import {
   updateProduct,
   getProductById,
   deleteProductById,
+  findProducts,
 } from './products/product.service';
 const editData: UpdateProductDto = {
   categoryId: faker.datatype.uuid(),
@@ -27,14 +28,21 @@ for (let idx = 0; idx <= 50; idx++) {
     categoryId: faker.datatype.uuid(),
   });
 }
-const getProduct = getProductById(getAllProducts()[50].id as string);
-console.log('esto vale getProduct ', getProduct);
+const getProducts = getProductById(getAllProducts()[50].id as string);
+console.log('esto vale getProduct ', getProducts);
 
 const editedProduct = updateProduct(
   getAllProducts()[50].id as string,
   editData
 );
 console.log('esto vale editedProduct ', editedProduct);
+
+const responseProducts = findProducts({
+  title: 'p1',
+  color: 'red',
+  stock: 10,
+  tags: ['as', 'asd', 'wasd'],
+});
 
 deleteProductById(getAllProducts()[0].id as string);
 console.log(

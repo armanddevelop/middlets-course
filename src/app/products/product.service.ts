@@ -1,6 +1,10 @@
 import { faker } from '@faker-js/faker';
 import { Product } from './product.model';
-import { CreateProductDto, UpdateProductDto } from './products.DTO';
+import {
+  CreateProductDto,
+  FindProductDto,
+  UpdateProductDto,
+} from './products.DTO';
 import { CATEGORIESTYPES } from '../categories/categories.model';
 
 export const products: Product[] = [];
@@ -30,7 +34,7 @@ export const addProduct = (data: CreateProductDto): Product => {
 };
 
 export const updateProduct = (
-  idProduct: string,
+  idProduct: Product['id'],
   changes: UpdateProductDto
 ): Product => {
   const idxProduct = products.findIndex(({ id }) => id === idProduct);
@@ -43,6 +47,13 @@ export const updateProduct = (
 
 export const getProductById = (idProduct: string): Product[] =>
   products.filter(({ id }) => id === idProduct);
+
+export const findProducts = (productDto: FindProductDto): Product[] => {
+  //productDto.color = 'blue';
+  //productDto.isNew = false;
+  //productDto.tags?.push('test');
+  return products;
+};
 
 export const deleteProductById = (idProduct: string) => {
   const idxProduct = products.findIndex(({ id }) => id === idProduct);
