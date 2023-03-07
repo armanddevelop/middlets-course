@@ -6,7 +6,7 @@ const withoutEnd = () => {
 const fail = (message: string) => {
   throw new Error(message);
 };
-
+//comentario de pruebas
 const exempleNever = (input: unknown) => {
   if (typeof input === 'string') {
     return 'es un string';
